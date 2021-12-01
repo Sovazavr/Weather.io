@@ -1,0 +1,84 @@
+@import '../../../styles/variables.scss';
+
+%button_accept {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
+    font-size: 18px;
+    color: var(#{--text-color-default});
+    padding: 9px 20px;
+    background-color: var(#{--components-background-default});
+    border-radius: 5px;
+    cursor: pointer;
+}
+.days{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 100%;
+    background-color: var(#{--components-background-default});
+    box-shadow: $box-shadow;
+    border-radius: 0 0 $border-radius $border-radius;
+}
+.card {
+    display: flex;
+    flex-direction: column;
+    background: var(#{--card-background-default});
+    border-radius: 10px;
+    padding: 10px;
+    width: 149px;
+    transition: 0.3s;
+    cursor: pointer;
+    .day {
+        margin-bottom: 7px;
+        font-size: 18px;
+        color: var(#{--text-background-default});
+    }
+    .day_info{
+        font-size: 14px;
+        margin-bottom: 12px;
+        color: $base-color;
+    }
+    .img{
+        margin-bottom: 12px;
+    }
+    .temp_day{
+        font-size: 12px;
+        color: var(#{--text-background-default});
+    }
+    .temp_night{
+        font-size: 13px;
+        color: $base-color;
+    }
+    .info {
+        font-size: 13px;
+        color: $base-color;
+    }
+    &:hover {
+        box-shadow: var(#{--card-shadow-default});
+    }
+}
+.tabs{
+    display: flex;
+    justify-content: space-between;
+   
+    margin-bottom: 7px;
+    
+    .cancel {
+        @extend %button_accept;
+        margin-right: 0;
+    }
+    .tab{
+        @extend %button_accept;
+        &.active{
+            background: $primary-color;
+            color: #fff;
+        }
+    }
+    .tabs_wrapper{
+        display: flex;
+    }
+}
