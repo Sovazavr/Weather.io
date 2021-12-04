@@ -35,7 +35,7 @@
     .day {
         margin-bottom: 7px;
         font-size: 18px;
-        color: var(#{--text-background-default});
+        color: var(#{--text-color-default});
     }
     .day_info{
         font-size: 14px;
@@ -47,7 +47,7 @@
     }
     .temp_day{
         font-size: 12px;
-        color: var(#{--text-background-default});
+        color: var(#{--text-color-default});
     }
     .temp_night{
         font-size: 13px;
