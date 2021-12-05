@@ -31,6 +31,7 @@ export const Header = (props: Props) => {
             border: 'none',
             borderRadius: '10px',
             zIndex: 100,
+            
         }),
         singleValue: (styles: any) => ({
             ...styles,
@@ -42,7 +43,7 @@ export const Header = (props: Props) => {
         theme.changeTheme(theme.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
     }
 
-    
+
 
 
     return (
