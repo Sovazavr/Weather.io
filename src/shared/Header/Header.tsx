@@ -1,26 +1,31 @@
 
+import { useEffect } from 'react'
 import Select from 'react-select'
 import { GlobalSvgSelector } from '../../assets/images/icons/global/GlobalSvgSelector'
 import { Theme } from '../../context/ThemeContext'
+import { useCustomeDispatch } from '../../hooks/store'
 import { useTheme } from '../../hooks/useTheme'
-
+import { fetchCurrentWeather } from '../../store/thunks/fetchCurrentWeather'
 import s from './Header.module.scss'
 interface Props {
-
+    getNewCity: any
 }
 
-export const Header = (props: Props) => {
+
+
+export const Header = ({getNewCity}: Props) => {
 
     const theme = useTheme()
 
 
-
-
+    
 
     const options = [
-        { value: 'city-1', label: 'Санкт-Пертербург' },
-        { value: 'city-2', label: 'Москва' },
-        { value: 'city-3', label: 'Барнаул' }
+        { value: 'Saint Petersburg', label: 'Санкт-Петербург' },
+        { value: 'Moscow', label: 'Москва' },
+        { value: 'Barnaul', label: 'Барнаул' },
+        { value: 'Novoegorevkoe', label: 'Новоегорьевское' },
+
     ]
 
     const colourStyles = {
@@ -42,9 +47,12 @@ export const Header = (props: Props) => {
     function changeTheme() {
         theme.changeTheme(theme.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
     }
-
-
-
+    const dispatch=useCustomeDispatch();
+    
+    const loadCity=(e: any) => {
+        getNewCity(e?.label)
+        dispatch(fetchCurrentWeather(e?.label))
+    }
 
     return (
         <header className={s.header}>
@@ -62,6 +70,7 @@ export const Header = (props: Props) => {
                     defaultValue={options[0]}
                     styles={colourStyles}
                     options={options}
+                    onChange={loadCity}
                 />
             </div>
         </header>

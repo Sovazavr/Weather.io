@@ -7,7 +7,8 @@ export function changeCssRootVariables(theme: string) {
         'components-background',
         'card-background',
         'card-shadow',
-        'text-color'
+        'text-color',
+        'body-background-img'
     ]
 
     

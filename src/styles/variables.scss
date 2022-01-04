@@ -12,6 +12,8 @@ $base-color: #939cb0;
 $body-background-dark: #0d1117;
 $body-background-light: #fff;
 
+
+
 $components-background-dark: #4f4f4f;
 $components-background-light: #fff;
 
@@ -26,7 +28,8 @@ $card-box-shadow-dark: 0px 3px 20px rgba(5, 5, 5, 0.28);
     --body-background-dark: #{$body-background-dark};
     --body-background-light: #{$body-background-light};
     --body-background-default: var(#{--body-background-light});
-
+    
+    
     //components background
     --components-background-dark: #{$components-background-dark};
     --components-background-light: #{$components-background-light};

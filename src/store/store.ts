@@ -12,6 +12,10 @@ export const store=configureStore({
     })
 })
 
+export function retCity(city: string) {
+    return city
+}
+
 export type RootState=ReturnType<typeof rootReducer>;
 export type AppStore=typeof store;
 export type AppDispath=AppStore['dispatch']

@@ -12,6 +12,9 @@
     background-color: var(#{--components-background-default});
     border-radius: 5px;
     cursor: pointer;
+    &:hover {
+        background: $primary-color
+    }
 }
 .days{
     display: flex;
@@ -70,6 +73,7 @@
     .cancel {
         @extend %button_accept;
         margin-right: 0;
+        
     }
     .tab{
         @extend %button_accept;
