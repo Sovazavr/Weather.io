@@ -1,4 +1,5 @@
 
+
 import { useEffect } from 'react'
 import Select from 'react-select'
 import { GlobalSvgSelector } from '../../assets/images/icons/global/GlobalSvgSelector'
@@ -7,25 +8,32 @@ import { useCustomeDispatch } from '../../hooks/store'
 import { useTheme } from '../../hooks/useTheme'
 import { fetchCurrentWeather } from '../../store/thunks/fetchCurrentWeather'
 import s from './Header.module.scss'
+import { fullCity } from '../../assets/cityData/output'
+
 interface Props {
     getNewCity: any
 }
 
 
 
-export const Header = ({getNewCity}: Props) => {
+export const Header = ({ getNewCity }: Props) => {
 
     const theme = useTheme()
 
+    const mas=fullCity.map((i:any)=>{
+        return({value: i.postal_code, label: i.address})
+    })
 
-    
+    console.log(mas)
+
 
     const options = [
-        { value: 'Saint Petersburg', label: 'Санкт-Петербург' },
-        { value: 'Moscow', label: 'Москва' },
-        { value: 'Barnaul', label: 'Барнаул' },
-        { value: 'Novoegorevkoe', label: 'Новоегорьевское' },
-
+        { value: '190000', label: 'Санкт-Петербург' },
+        { value: '101000', label: 'Москва' },
+        { value: '656000', label: 'Барнаул' },
+        { value: '658280', label: 'Новоегорьевское' },
+        { value: '658200', label: 'Рубцовск' },
+        { value: '659300', label: 'Бийск' },
     ]
 
     const colourStyles = {
@@ -36,7 +44,7 @@ export const Header = ({getNewCity}: Props) => {
             border: 'none',
             borderRadius: '10px',
             zIndex: 100,
-            
+
         }),
         singleValue: (styles: any) => ({
             ...styles,
@@ -47,11 +55,11 @@ export const Header = ({getNewCity}: Props) => {
     function changeTheme() {
         theme.changeTheme(theme.theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT)
     }
-    const dispatch=useCustomeDispatch();
-    
-    const loadCity=(e: any) => {
+    const dispatch = useCustomeDispatch();
+
+    const loadCity = (e: any) => {
         getNewCity(e?.label)
-        dispatch(fetchCurrentWeather(e?.label))
+        dispatch(fetchCurrentWeather(e?.value))
     }
 
     return (
@@ -67,9 +75,9 @@ export const Header = ({getNewCity}: Props) => {
                     <GlobalSvgSelector id="change-theme" />
                 </div>
                 <Select
-                    defaultValue={options[0]}
+                    defaultValue={mas[0]}
                     styles={colourStyles}
-                    options={options}
+                    options={mas}
                     onChange={loadCity}
                 />
             </div>

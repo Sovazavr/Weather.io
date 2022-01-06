@@ -2,9 +2,10 @@ import React from 'react'
 import s from './ThisDayInfo.module.scss'
 import cloud from '../../../../assets/images/cloud.png'
 import { ThisDayItem } from './ThisDayItem'
+import { Weather } from '../../../../store/types/types'
 
 interface Props {
-
+    weather: Weather
 }
 export interface Item {
     icon_id: string;
@@ -12,26 +13,49 @@ export interface Item {
     value: string;
 }
 
-export const ThisDayInfo = (props: Props) => {
+export const ThisDayInfo = ({ weather }: Props) => {
+    const paskal = 0.750063755
+    const pressure = !weather.main.grnd_level ? weather.main.pressure : weather.main.grnd_level
+
+
+    function azimut(grad: number) {
+        if (grad > 335 || grad < 25)
+            return "северный"
+        else if (grad >= 25 && grad < 70)
+            return "северо-восточный"
+        else if (grad >= 70 && grad < 115)
+            return "восточный"
+        else if (grad >= 115 && grad < 160)
+            return "юго-восточный"
+        else if (grad >= 160 && grad < 205)
+            return "южный"
+        else if (grad >= 205 && grad < 250)
+            return "юго-западный"
+        else if (grad >= 250 && grad < 295)
+            return "западный"
+        else if (grad >= 295 && grad < 335)
+            return "северо-западный"
+    }
+
     const items = [{
         icon_id: 'temp',
         name: 'Температура',
-        value: '20° - ощущается как 17°'
+        value: `${Math.floor(weather.main.temp)}° - ощущается как ${Math.floor(weather.main.feels_like)}°`
     },
     {
         icon_id: 'pressure',
         name: 'Давление',
-        value: '765 мм ртутного столба - нормальное'
+        value: `${Math.floor(pressure * paskal)} мм ртутного столба - нормальное`
     },
     {
         icon_id: 'precipitation',
         name: 'Осадки',
-        value: 'Без осадков'
+        value: `${weather.weather[0].description}`
     },
     {
         icon_id: 'wind',
         name: 'Ветер',
-        value: '3 м/с юго-запад - легкий ветер'
+        value: `${Math.floor(weather.wind.speed) == 0 ? "штиль" : Math.floor(weather.wind.speed) + ' м/с ' + azimut(weather.wind.deg)}`
     },
     ]
     return (

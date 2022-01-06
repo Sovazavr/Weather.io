@@ -18,7 +18,22 @@ const initialState: CurrentWeather = {
     weather: {
         main: {
             temp: 404,
+            feels_like: 404,
+            pressure: 404,
+            grnd_level: 404,
         },
+        weather: [
+            {
+              id: 404,
+              main: "",
+              description: "",
+              icon: "",
+            }
+          ],
+          wind: {
+            speed: 404,
+            deg: 404,
+          },
     },
     isLoading: false,
     response: {

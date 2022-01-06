@@ -9,7 +9,7 @@ import { Header } from './shared/Header/Header';
 
 
 function App() {
-  const [city, getCity]= useState('Санкт-Петербург')
+  const [city, getCity]= useState('')
  
   const getNewCity = (name: string) => {getCity(name)}
  
