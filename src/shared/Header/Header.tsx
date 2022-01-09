@@ -6,12 +6,12 @@ import { GlobalSvgSelector } from '../../assets/images/icons/global/GlobalSvgSel
 import { Theme } from '../../context/ThemeContext'
 import { useCustomeDispatch } from '../../hooks/store'
 import { useTheme } from '../../hooks/useTheme'
-import { fetchCurrentWeather } from '../../store/thunks/fetchCurrentWeather'
+import { fetchCurrentWeather, fetchDailyWeather } from '../../store/thunks/fetchCurrentWeather'
 import s from './Header.module.scss'
 import { fullCity } from '../../assets/cityData/output'
 
 interface Props {
-    getNewCity: any
+    getNewCity: any,
 }
 
 
@@ -24,23 +24,13 @@ export const Header = ({ getNewCity }: Props) => {
         return({value: i.postal_code, label: i.address})
     })
 
-    console.log(mas)
-
-
-    const options = [
-        { value: '190000', label: 'Санкт-Петербург' },
-        { value: '101000', label: 'Москва' },
-        { value: '656000', label: 'Барнаул' },
-        { value: '658280', label: 'Новоегорьевское' },
-        { value: '658200', label: 'Рубцовск' },
-        { value: '659300', label: 'Бийск' },
-    ]
+    
 
     const colourStyles = {
         control: (styles: any) => ({
             ...styles,
-            backgroundColor: theme.theme === Theme.DARK ? '#4f4f4f' : 'rgba(71, 147, 255, 0.2)',
-            width: '194px', heigth: '37px',
+            backgroundColor: theme.theme === Theme.DARK ? '#4f4f4f' : 'rgb(255, 255, 255)',
+            width: '200px', heigth: '40px',
             border: 'none',
             borderRadius: '10px',
             zIndex: 100,
@@ -60,8 +50,9 @@ export const Header = ({ getNewCity }: Props) => {
     const loadCity = (e: any) => {
         getNewCity(e?.label)
         dispatch(fetchCurrentWeather(e?.value))
+        dispatch(fetchDailyWeather(e?.value))
     }
-
+    
     return (
         <header className={s.header}>
             <div className={s.wrapper}>
@@ -74,8 +65,9 @@ export const Header = ({ getNewCity }: Props) => {
                 <div className={s.change_theme} onClick={changeTheme}>
                     <GlobalSvgSelector id="change-theme" />
                 </div>
+              
                 <Select
-                    defaultValue={mas[0]}
+                    defaultValue={[{value: '-----', label: '-----'}]}
                     styles={colourStyles}
                     options={mas}
                     onChange={loadCity}

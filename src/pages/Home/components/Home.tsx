@@ -1,24 +1,24 @@
 import { useEffect } from "react";
 import { useCustomeDispatch, useCustomeSelector } from "../../../hooks/store";
-import { fetchCurrentWeather } from "../../../store/thunks/fetchCurrentWeather";
+import { fetchCurrentWeather, fetchDailyWeather } from "../../../store/thunks/fetchCurrentWeather";
 import { Days } from "../Days/Days";
 import s from './Home.module.scss'
 import { ThisDay } from "./ThisDay/ThisDay";
 import { ThisDayInfo } from "./ThisDayInfo/ThisDayInfo";
 
 interface Props {
-    city: string
+    city: string,
 }
 
 export const Home = ({city}: Props) => {
     
     const dispatch=useCustomeDispatch();
     const {weather}=useCustomeSelector((state)=>state.currentWeatherSliceReducer)
-    
+    const {daily}=useCustomeSelector((state)=>state.currentWeatherSliceReducer)
 
     useEffect(() => {
-        dispatch(fetchCurrentWeather(city));
-        
+        dispatch(fetchCurrentWeather(city))
+        dispatch(fetchDailyWeather(city))
       }, []);
 
     
@@ -30,7 +30,7 @@ export const Home = ({city}: Props) => {
                 <ThisDayInfo weather={weather}/>
 
             </div>
-            <Days />
+            <Days daily={daily}/>
         </div>
     )
 }
