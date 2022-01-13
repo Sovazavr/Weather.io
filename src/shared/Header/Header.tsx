@@ -59,13 +59,13 @@ export const Header = ({ getNewCity }: Props) => {
                 <div className={s.logo}>
                     <GlobalSvgSelector id="header-logo" />
                 </div>
-                <div className={s.title}>React Weather</div>
+                <div className={s.title}>Weather Project</div>
             </div>
             <div className={s.wrapper}>
                 <div className={s.change_theme} onClick={changeTheme}>
                     <GlobalSvgSelector id="change-theme" />
                 </div>
-              
+                
                 <Select
                     defaultValue={[{value: '-----', label: '-----'}]}
                     styles={colourStyles}

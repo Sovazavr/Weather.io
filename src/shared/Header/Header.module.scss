@@ -18,6 +18,13 @@
     svg{
         width: 65px;
         height: 65px;
+        transition: 0.3s;
+    }
+    
+    &:hover {
+        svg {
+            transform: rotate(360deg);
+        }
     }
 }
 

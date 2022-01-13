@@ -8,9 +8,11 @@ import { ThisDayInfo } from "./ThisDayInfo/ThisDayInfo";
 
 interface Props {
     city: string,
+    setActive:any,
+    getDaily: any,
 }
 
-export const Home = ({city}: Props) => {
+export const Home = ({city, setActive, getDaily}: Props) => {
     
     const dispatch=useCustomeDispatch();
     const {weather}=useCustomeSelector((state)=>state.currentWeatherSliceReducer)
@@ -30,7 +32,7 @@ export const Home = ({city}: Props) => {
                 <ThisDayInfo weather={weather}/>
 
             </div>
-            <Days daily={daily}/>
+            <Days daily={daily} getDaily={getDaily} setActive={setActive}/>
         </div>
     )
 }

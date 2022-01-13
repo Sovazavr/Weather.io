@@ -25,11 +25,18 @@ export type LongWeather = {
       dt: number,
       main: {
         temp: number,
+        feels_like: number,
+        pressure: number,
+        grnd_level: number,
       },
       weather:[ {
         icon: string,
         description: string,
-      }]
+      }],
+      wind: {
+        deg: number,
+        speed: number,
+      }
     }
   ]
 }
