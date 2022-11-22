@@ -6,7 +6,7 @@ import s from './Days.module.scss'
 
 interface Props {
     dayInfo: Day,
-    setActive:any,
+    setActive: any,
     getDaily: any,
 }
 
@@ -17,16 +17,21 @@ export const Card = ({ dayInfo, setActive, getDaily }: Props) => {
         getDaily(dayInfo)
     }
     return (
-        <div className={s.card} onClick={handleClick}>
-            <div className={s.day}>{day}</div>
-            <div className={s.day_info}>{day_info}</div>
-            <div className={s.img}>
-                <GlobalSvgSelector id={'small' + icon_id} />
+        
+            <div className={s.card} onClick={handleClick}>
+                <div className={s.card_text}>
+                    <div className={s.day}>{day}</div>
+                    <div className={s.day_info}>{day_info}</div>
+
+                    <div className={s.temp_day}>{temp_day}</div>
+
+                    <div className={s.info}>{info}</div>
+                </div>
+                <div className={s.img}>
+                    <GlobalSvgSelector id={'small' + icon_id} />
+                </div>
             </div>
-            <div className={s.temp_day}>{temp_day}</div>
-            
-            <div className={s.info}>{info}</div>
-        </div>
-    
+
+        
     )
 }

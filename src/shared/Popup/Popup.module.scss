@@ -2,24 +2,33 @@
 
 .popup {
     position: absolute;
+    // top: 25%;
+    // left: calc(50% - 500px);
+    height: 55vh;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
     top: 25%;
-    left: calc(50% - 325px);
     z-index: 1001;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 40px;
-    max-width: 750px;
-    width: 100%;
+    max-width: 1000px;
+    visibility: hidden;
+    width: 80%;
     background: var(#{--components-background-default});
     box-shadow: var(#{--card-shadow-default});
     border-radius: $border-radius;
     opacity: 0;
     transition: 0.5s;
 }
-.popup_active{
+.popup_active {
     @extend .popup;
     opacity: 1;
+    visibility: visible;
 }
 .blur {
     position: absolute;
@@ -49,31 +58,40 @@
     }
 }
 .day {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+    width: 20%;
+    .temp_wrap {
+        display: flex;
+        justify-content: space-between;
+    }
     .day_temp {
         font-weight: 500;
-        font-size: 60px;
+        font-size: 480%;
         color: $primary-color;
-        margin-bottom: 12px;
+       
     }
     .day_name {
-        font-size: 25px;
+        font-size: 250%;
         line-height: 30px;
         color: var(#{--text-color-default});
-        margin-bottom: 12px;
+        
     }
     .img {
         svg {
             width: 53px;
             height: 53px;
         }
-        margin-bottom: 12px;
+       
     }
     .day_time {
-        font-size: 15px;
+        font-size: 140%;
         color: $base-color;
     }
-    .day_city{
-        font-size: 15px;
+    .day_city {
+        font-size: 140%;
         color: $base-color;
     }
 }

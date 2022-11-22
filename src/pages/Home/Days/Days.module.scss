@@ -3,7 +3,7 @@
 %button_accept {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     margin-right: 15px;
     box-shadow: 2px 5px 25px -3px rgba(180, 180, 180, 0.25);
     font-size: 18px;
@@ -19,8 +19,8 @@
 .days{
     display: flex;
     justify-content: space-between;
-    flex-wrap: wrap;
-    padding: 20px;
+    flex-wrap: nowrap;
+    padding: 10px;
     width: 100%;
     background-color: var(#{--components-background-default});
     box-shadow: $box-shadow;
@@ -28,20 +28,27 @@
 }
 .card {
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
     background: var(#{--card-background-default});
+    justify-content: space-between;
     border-radius: 10px;
     padding: 10px;
-    width: 149px;
+    max-width: 250px;
+    width: 95%;
+    margin: 5px;
     transition: 0.3s;
     cursor: pointer;
+    .text{
+        display: flex;
+        flex-direction: column;
+    }
     .day {
         margin-bottom: 7px;
-        font-size: 18px;
+        font-size: 140%;
         color: var(#{--text-color-default});
     }
     .day_info{
-        font-size: 14px;
+        font-size: 130%;
         margin-bottom: 12px;
         color: $base-color;
     }
@@ -51,15 +58,15 @@
         height: 48px;
     }
     .temp_day{
-        font-size: 12px;
+        font-size: 160%;
         color: var(#{--text-color-default});
     }
     .temp_night{
-        font-size: 13px;
+        font-size: 180%;
         color: $base-color;
     }
     .info {
-        font-size: 13px;
+        font-size: 100%;
         color: $base-color;
     }
     &:hover {
@@ -87,4 +94,87 @@
     .tabs_wrapper{
         display: flex;
     }
+}
+@media (orientation: portrait) {
+    
+    .days{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        flex-wrap: wrap;
+        padding: 20px;
+        width: 100%;
+        background-color: var(#{--components-background-default});
+        box-shadow: $box-shadow;
+        border-radius: 0 0 $border-radius $border-radius;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        background: var(#{--card-background-default});
+        justify-content: space-between;
+        border-radius: 10px;
+        padding: 10px;
+        max-width: 250px;
+        width: 95%;
+        transition: 0.3s;
+        cursor: pointer;
+        .text{
+            display: flex;
+            flex-direction: column;
+        }
+        .day {
+            margin-bottom: 7px;
+            font-size: 220%;
+            color: var(#{--text-color-default});
+        }
+        .day_info{
+            font-size: 180%;
+            margin-bottom: 12px;
+            color: $base-color;
+        }
+        .img{
+            margin-bottom: 12px;
+            width: 48px;
+            height: 48px;
+        }
+        .temp_day{
+            font-size: 180%;
+            color: var(#{--text-color-default});
+        }
+        .temp_night{
+            font-size: 180%;
+            color: $base-color;
+        }
+        .info {
+            font-size: 110%;
+            color: $base-color;
+        }
+        &:hover {
+            box-shadow: var(#{--card-shadow-default});
+        }
+    }
+    .tabs{
+        display: flex;
+        justify-content: space-between;
+       
+        margin-bottom: 7px;
+        
+        .cancel {
+            @extend %button_accept;
+            margin-right: 0;
+            
+        }
+        .tab{
+            @extend %button_accept;
+            &.active{
+                background: $primary-color;
+                color: #fff;
+            }
+        }
+        .tabs_wrapper{
+            display: flex;
+        }
+    }
+
 }

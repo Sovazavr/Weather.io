@@ -3,18 +3,19 @@
 .this_day_info {
     position: relative;
     padding: 40px;
-    max-width: 750px;
+    // max-width: 0px;
+    margin-left: 20px;
     width: 100%;
     background: var(#{--components-background-default});
     box-shadow: $box-shadow;
     border-radius: $border-radius;
-   
 }
+
 .item {
     position: relative;
     display: flex;
     align-items: center;
-    margin-bottom: 25px;
+    margin-bottom: 5%;
     &:last-of-type {
         margin-bottom: 0;
     }
@@ -23,8 +24,8 @@
         margin-right: 20px;
     }
     .indicator {
-        width: 38px;
-        height: 38px;
+        width: 50px;
+        height: 50px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -33,11 +34,11 @@
         border-radius: 50%;
     }
     .indicator_name {
-        font-size: 14px;
+        font-size: 140%;
         color: $base-color;
     }
     .indicator_value {
-        font-size: 14px;
+        font-size: 160%;
         color: var(#{--text-color-default});
     }
 }
@@ -48,4 +49,25 @@
     height: 202px;
     width: 400px;
     border-radius: $border-radius;
+}
+
+@media (orientation: portrait) {
+    .this_day_info{
+        margin-left: 0;
+    }
+    .cloud_img {
+        visibility: hidden;
+    }
+    .this_day_info_items {
+        .item {
+            .indicator,
+            .indicator_name {
+                visibility: hidden;
+                display: none;
+            }
+            .indicator_value{
+                left: 0;
+            }
+        }
+    }
 }

@@ -57,7 +57,7 @@ export const GlobalSvgSelector = ({ id }: Props) => {
                             <stop offset="1" stop-color="#9BC1F5" />
                         </linearGradient>
                         <radialGradient id="paint2_radial_2_530" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(15.0679 -22.6966) rotate(-90) scale(20.9574 6.69705)">
-                            <stop stop-color="#486DA8" stop-opacity="0.4" />
+                            <stop stop-color="#486DA8" stopOpacity="0.4" />
                             <stop offset="1" stop-color="#486DA8" stop-opacity="0" />
                         </radialGradient>
                     </defs>

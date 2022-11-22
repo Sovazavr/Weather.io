@@ -2,11 +2,14 @@
 
 .this_day {
     padding: 20px;
-    max-width: 400px;
+    max-width: 500px;
+    // height: 600px;
+    
     width: 100%;
     background: var(#{--components-background-default});
     box-shadow: $box-shadow;
     border-radius: $border-radius;
+    
 }
 .top_block {
     display: flex;
@@ -19,19 +22,35 @@
         height: 119px;
     }
     .this_temp {
-        font-size: 96px;
-        font-weight: 500;
+        font-size: 700%;
+        font-weight: 400;
         color: $primary-color;
     }
-    .this_day_name{
-        font-size: 40px;
+    .this_day_name {
+        font-size: 180%;
         color: var(#{--text-color-default});
     }
 }
 .bottom_block {
-    .this_time,
-    .this_city{
+    .this_time {
+        margin-top: 12%;
         color: $base-color;
-        font-size: 25px;
+        font-size: 180%;
+    }
+
+    .this_city {
+        @extend .this_time;
+        margin-top: 10%;
+    }
+}
+
+@media (orientation: portrait) {
+    .this_day{
+        max-width: 100vw;
+    }
+    .top_block {
+        .this_temp {
+            font-size: 500%;
+        }
     }
 }
