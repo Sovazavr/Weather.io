@@ -80,15 +80,15 @@ function App() {
           <div className="container">
 
             <Header getNewCity={getNewCity} setActive={setActive} active={active} />
-            {loading
-              ?
-              <Loading />
-              :
+            {/* {loading
+              ? */}
+              {/* <Loading /> */}
+              {/* : */}
               <Routes>
                 <Route path="/" element={<Home city={city} setActive={setModaleActive} getDaily={getDailyModal} />} />
                 <Route path="/month-statistics" element={<MonthStatisticse />} />
               </Routes>
-            }
+            {/* } */}
           </div>
        
 
