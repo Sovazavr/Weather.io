@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/Weather/static/css/main.72b7ab02.chunk.css",
-    "main.js": "/Weather/static/js/main.4cddf325.chunk.js",
-    "main.js.map": "/Weather/static/js/main.4cddf325.chunk.js.map",
-    "runtime-main.js": "/Weather/static/js/runtime-main.08fc55c6.js",
-    "runtime-main.js.map": "/Weather/static/js/runtime-main.08fc55c6.js.map",
-    "static/css/2.3c526f5d.chunk.css": "/Weather/static/css/2.3c526f5d.chunk.css",
-    "static/js/2.9c3ae40b.chunk.js": "/Weather/static/js/2.9c3ae40b.chunk.js",
-    "static/js/2.9c3ae40b.chunk.js.map": "/Weather/static/js/2.9c3ae40b.chunk.js.map",
-    "index.html": "/Weather/index.html",
-    "static/css/2.3c526f5d.chunk.css.map": "/Weather/static/css/2.3c526f5d.chunk.css.map",
-    "static/css/main.72b7ab02.chunk.css.map": "/Weather/static/css/main.72b7ab02.chunk.css.map",
-    "static/js/2.9c3ae40b.chunk.js.LICENSE.txt": "/Weather/static/js/2.9c3ae40b.chunk.js.LICENSE.txt",
-    "static/media/cloud.5aba1c6d.png": "/Weather/static/media/cloud.5aba1c6d.png"
+    "main.css": "/Weather.io/static/css/main.8490d36b.chunk.css",
+    "main.js": "/Weather.io/static/js/main.b7fcf68e.chunk.js",
+    "main.js.map": "/Weather.io/static/js/main.b7fcf68e.chunk.js.map",
+    "runtime-main.js": "/Weather.io/static/js/runtime-main.9decafe5.js",
+    "runtime-main.js.map": "/Weather.io/static/js/runtime-main.9decafe5.js.map",
+    "static/css/2.3c526f5d.chunk.css": "/Weather.io/static/css/2.3c526f5d.chunk.css",
+    "static/js/2.b2705b1c.chunk.js": "/Weather.io/static/js/2.b2705b1c.chunk.js",
+    "static/js/2.b2705b1c.chunk.js.map": "/Weather.io/static/js/2.b2705b1c.chunk.js.map",
+    "index.html": "/Weather.io/index.html",
+    "static/css/2.3c526f5d.chunk.css.map": "/Weather.io/static/css/2.3c526f5d.chunk.css.map",
+    "static/css/main.8490d36b.chunk.css.map": "/Weather.io/static/css/main.8490d36b.chunk.css.map",
+    "static/js/2.b2705b1c.chunk.js.LICENSE.txt": "/Weather.io/static/js/2.b2705b1c.chunk.js.LICENSE.txt",
+    "static/media/cloud.5aba1c6d.png": "/Weather.io/static/media/cloud.5aba1c6d.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.08fc55c6.js",
+    "static/js/runtime-main.9decafe5.js",
     "static/css/2.3c526f5d.chunk.css",
-    "static/js/2.9c3ae40b.chunk.js",
-    "static/css/main.72b7ab02.chunk.css",
-    "static/js/main.4cddf325.chunk.js"
+    "static/js/2.b2705b1c.chunk.js",
+    "static/css/main.8490d36b.chunk.css",
+    "static/js/main.b7fcf68e.chunk.js"
   ]
 }
