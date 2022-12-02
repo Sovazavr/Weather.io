@@ -1,14 +1,17 @@
 
 import { AxiosResponse } from 'axios';
-import { LongWeather, Weather } from './../types/types';
+import { LongWeather, Weather, CityName } from './../types/types';
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type CurrentWeather = {
     daily: LongWeather,
     weather: Weather,
-    isLoading: boolean;
-    response: Response;
+    isLoading: boolean,
+    response: Response,
+    cityNames: CityName,
 }
+
+
 
 type Response = {
     status: number;
@@ -16,6 +19,19 @@ type Response = {
 }
 
 const initialState: CurrentWeather = {
+    cityNames: {
+        list: [
+            {
+                local_names: {
+                    ru: " ",
+                }
+            }
+        ]
+    },
+
+
+
+
     weather: {
         main: {
             temp: 404,
@@ -69,6 +85,17 @@ export const currentWeatherSlice = createSlice({
     name: 'current_weather',
     initialState,
     reducers: {
+        fetchCityName(state, action: PayloadAction<AxiosResponse<CityName>>) {
+            state.isLoading = false;
+            state.cityNames = action.payload.data
+        },
+        fetchCityNameError(state, action: PayloadAction<AxiosResponse<CityName>>) {
+            state.response = {
+                status: action.payload.status,
+                message: action.payload.statusText,
+            }
+            state.isLoading = false;
+        },
         fetchCurrentWeather(state) {
             state.isLoading = true
         },

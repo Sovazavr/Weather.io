@@ -9,11 +9,12 @@ import s from './Header.module.scss'
 interface Props {
     filterCity: any,
     getNewCity: any,
+    getPostalCode: any,
 }
 
 
 
-export const CityList = ({ filterCity, getNewCity }: Props) => {
+export const CityList = ({ filterCity, getNewCity, getPostalCode}: Props) => {
 
    
     const dispatch = useCustomeDispatch();
@@ -21,7 +22,7 @@ export const CityList = ({ filterCity, getNewCity }: Props) => {
 
     const loadCity = () => {
 
-
+        getPostalCode(filterCity?.postal_code)
 
         getNewCity(filterCity?.address)
         dispatch(fetchCurrentWeather(filterCity?.postal_code))
@@ -29,7 +30,7 @@ export const CityList = ({ filterCity, getNewCity }: Props) => {
     }
     return (
         <div onClick={() => loadCity()} className={s.elemCity}>
-            {filterCity.address}
+           {filterCity.address}
         </div>
     )
 }

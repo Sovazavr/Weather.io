@@ -36,6 +36,13 @@ export const ThisDayInfo = ({ weather }: Props) => {
         else if (grad >= 295 && grad < 335)
             return "северо-западный"
     }
+    const chekEnglish=(eng: string)=>{
+        if (eng=='overcast clouds') {
+            return 'Пасмурно'
+        } else {
+            return eng
+        }
+    }
 
     const items = [{
         icon_id: 'temp',
@@ -50,7 +57,7 @@ export const ThisDayInfo = ({ weather }: Props) => {
     {
         icon_id: 'precipitation',
         name: 'Осадки',
-        value: `${weather.weather[0].description}`
+        value: chekEnglish(weather.weather[0].description)
     },
     {
         icon_id: 'wind',

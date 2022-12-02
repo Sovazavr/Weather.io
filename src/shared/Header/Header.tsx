@@ -75,7 +75,8 @@ export const Header = ({ getNewCity, setActive, active }: Props) => {
                             <div className={active ? s.listPopup_active: s.listPopup}>
                                 {filteredCitys.map((filterCity) => <CityList
                                     getNewCity={getNewCity}
-                                    filterCity={filterCity} />)}
+                                    filterCity={filterCity}
+                                    getPostalCode={null} />)}
                             </div>
                         
                     }

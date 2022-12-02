@@ -1,3 +1,15 @@
+export type CityName = {
+  list: [
+    {
+      local_names: {
+        ru: string,
+      },
+    }
+  ]
+
+
+}
+
 export type Weather = {
   main: {
     temp: number;
@@ -29,7 +41,7 @@ export type LongWeather = {
         pressure: number,
         grnd_level: number,
       },
-      weather:[ {
+      weather: [{
         icon: string,
         description: string,
       }],
