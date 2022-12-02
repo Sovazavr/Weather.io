@@ -63,34 +63,36 @@ function App() {
     setCity(name)
     localStorage.name = name
   }
-  const getPostalCode=(zip: string) =>{
+  const getPostalCode = (zip: string) => {
     setZip(zip)
     localStorage.zip = zip
   }
 
-  const Reload=()=>{
+  const Reload = () => {
     document.location.reload()
   }
 
   return (
     <div className="global-container">
 
-      
-          <Popup dailyModal={dailyModal} active={modalActive} setActive={setModaleActive} city={city} />
-          <div className="container">
 
-            <Header getNewCity={getNewCity} setActive={setActive} active={active} />
-            {/* {loading
+      <Popup dailyModal={dailyModal} active={modalActive} setActive={setModaleActive} city={city} />
+      <div className="container">
+
+        <Header getNewCity={getNewCity} setActive={setActive} active={active} />
+
+        <Routes>
+          <Route path="/" element={<Home city={city} setActive={setModaleActive} getDaily={getDailyModal} />} />
+          <Route path="/month-statistics" element={<MonthStatisticse />} />
+        </Routes>
+        {/* {loading
               ? */}
-              {/* <Loading /> */}
-              {/* : */}
-              <Routes>
-                <Route path="/" element={<Home city={city} setActive={setModaleActive} getDaily={getDailyModal} />} />
-                <Route path="/month-statistics" element={<MonthStatisticse />} />
-              </Routes>
-            {/* } */}
-          </div>
-       
+        {/* <Loading /> */}
+        {/* : */}
+
+        {/* } */}
+      </div>
+
 
 
 
