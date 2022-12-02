@@ -75,8 +75,7 @@ function App() {
   return (
     <div className="global-container">
 
-      {locStor
-        ? <>
+      
           <Popup dailyModal={dailyModal} active={modalActive} setActive={setModaleActive} city={city} />
           <div className="container">
 
@@ -91,15 +90,7 @@ function App() {
               </Routes>
             }
           </div>
-        </>
-        : <div onClick={Reload}>
-          {fullCity.map((filterCity) => <CityList
-            getNewCity={getNewCityLoc}
-            filterCity={filterCity} 
-            getPostalCode={getPostalCode}
-            />)}
-        </div>
-      }
+       
 
 
 

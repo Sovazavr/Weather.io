@@ -22,7 +22,7 @@ export const CityList = ({ filterCity, getNewCity, getPostalCode}: Props) => {
 
     const loadCity = () => {
 
-        getPostalCode(filterCity?.postal_code)
+        // getPostalCode(filterCity?.postal_code)
 
         getNewCity(filterCity?.address)
         dispatch(fetchCurrentWeather(filterCity?.postal_code))
